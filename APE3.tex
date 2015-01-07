@@ -1,7 +1,36 @@
 \newape{Antennas and radiating Systems}
 
-\nosolution
-\nosolution
+\begin{solution}
+	There are two paths. The direct one and the reflected. The direct distance is $D = \sqrt{d^2 + (h_1 - h_2)^2} \approx d$. Using the information given in the exercise ($E(d) = \frac{k\sqrt{P}}{d}$), we have a first component of the received field equal to $E(d) = \frac{k\sqrt{P}}{D}$.
+
+	
+	The second distance is longer: $D_{refl}(a) = \sqrt{h_1^2 + a^2} + \sqrt{h_2^2 + (d - a)^2}$ with $a \in [0:d]$. 	
+	The reflection parameters given are $(\rho, \alpha)$ where I think, $\rho$ is the reflection ratio where $\alpha$ is the angle between the incident and the reflection field. So we have $a = h_1 \tan{\alpha/2}$ and $d - a = h_2 \tan{\alpha/2}$. 
+	The second electric field is then: $E_{refl} = \frac{k\sqrt{P}}{(h_1 + h_2)(1 + \tan{\alpha/2})}\rho$.
+	
+	
+	Finally, the received electric field is the sum:
+	$$E_{tot} = k\sqrt{P} (\frac{1}{(h_1 + h_2)(1 + \tan{\alpha/2})}\rho + \frac{1}{\sqrt{d^2 + (h_1 - h_2)^2}}$$
+
+	
+	The simplification $\rho = 1, \alpha = \pi$ conduct to a big simplification (the ground can be ignored) so that it only remains the direct path: $E_{tot} = \frac{k\sqrt{P}}{d}$.
+\end{solution}
+
+\begin{solution}
+	\begin{enumerate}
+		\item The power density decreases in $\frac{1}{4\pi d^2}$ with $d \approx 141.4m$ via Pythagore:
+			  $$ S = \frac{1}{4\pi 141.4^2} = 3.98\expten{-6}_W/m^2 $$
+		\item $E_0 = E \cdot \hat{a_z} \exp{-j\vec{k} \cdot \vec{r}}$ where $\vec{r}$ is directed toward the center of the plate.
+		\item It's the same expression with $\vec{r} = \frac{(a_x, a_y, 0)}{\sqrt{2}}$ and $\vec{k} = k \hat{a}$. Then we have 
+			  $$E_{inc} = E \cdot \hat{a_z} \exp{-j k (a_x + a_y)/\sqrt{2}}$$ 
+
+			  \notsure
+			  
+		\item We can define the origin at the reflection point, so that we have an incident wave coming with angle $\alpha = \pi/4$. The reflected magnetic field is given by the expression of $H_r$ of the second slide of page 12 from the propagation fundamentals course.
+			  \notsure I don't know how to compute the induced current...
+		\item Without the expression of the current I cannot have an expression here... \notsure
+	\end{enumerate}
+\end{solution}
 \nosolution
 \nosolution
 \nosolution

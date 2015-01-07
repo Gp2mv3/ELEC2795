@@ -34,7 +34,7 @@
 
 \usepackage{url}
 \newcommand{\newape}[1]
-{\section{Practical Session \thesection ( #1 )}}
+{\section{Practical Session \thesection (#1)}}
 \newcommand{\nosolution}
 {\begin{mysolution}\stepcounter{Exo}
 The exercise~\theExo{} does not yet have a solution.
@@ -47,36 +47,9 @@ or by mail to \url{nicolascognaux@gmail.com}.\end{mysolution}}
 \newcommand{\copyapeexo}[2]
 {\begin{mysolution}See APE#1, exercise~#2.\end{mysolution}}
 
+\newcommand{\expten}[1]{\cdot 10^{#1}}
+\newcommand{\notsure}{\textbf{I'm absolutely not sure of that ! Can someone check it ?}}
 
-\newcommand{\xor}{\oplus}
-
-\newcommand{\A}{\mathcal{A}}
-\newcommand{\D}{\mathcal{D}}
-\newcommand{\C}{\mathcal{C}}
-\newcommand{\K}{\mathcal{K}}
-\newcommand{\M}{\mathcal{M}}
-\newcommand{\G}{\mathcal{G}}
-\DeclareMathOperator{\Gen}{\mathsf{Gen}}
-\DeclareMathOperator{\Enc}{\mathsf{Enc}}
-\DeclareMathOperator{\Dec}{\mathsf{Dec}}
-\DeclareMathOperator{\Mac}{\mathsf{Mac}}
-\DeclareMathOperator{\Vrfy}{\mathsf{Vrfy}}
-\DeclareMathOperator{\Com}{\mathsf{Com}}
-\DeclareMathOperator{\Open}{\mathsf{Open}}
-\DeclareMathOperator{\Sign}{\mathsf{Sign}}
-\DeclareMathOperator{\Sig}{\mathsf{Sig}}
-
-\DeclareMathOperator{\PrivK}{PrivK}
-\DeclareMathOperator{\MacForge}{MacForge}
-\DeclareMathOperator{\Sigforge}{Sig-forge}
-\DeclareMathOperator{\Invert}{Invert}
-\DeclareMathOperator{\DDH}{DDH}
-\DeclareMathOperator{\DLog}{DLog}
-\newcommand{\PrivKeav}{\PrivK^{\text{eav}}}
-\newcommand{\PrivKmultcpa}{\PrivK^{\text{multcpa}}}
-\newcommand{\Sigforgeone}{\Sigforge^{\text{1--time}}}
-
-\DeclareMathOperator{\Ima}{\mathsf{Im}}
 
 \title{Solutions of the exercises of ELEC2795}
 \author{Nicolas Cognaux}
