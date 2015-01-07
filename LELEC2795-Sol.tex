@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{verbatim}
+
+\usepackage{qtree}
+
+\usepackage{ifthen}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc, arrows}
+
+\newcounter{Exo}[section]
+
+% greyarrow has much better handling of page breaks, see the link on stackoverflow for more info
+\def\SolStyle{greyarrow}
+\ifthenelse{\isundefined{\SolStyle}}{\def\SolStyle{greyarrow}}{}
+\ifthenelse{\equal{\SolStyle}{greyarrow}}
+{
+  \input{greyarrow.tex}
+}
+{
+  \input{boxes.tex}
+}
+
+\newenvironment{solution}{\stepcounter{Exo}\begin{mysolution}}{\end{mysolution}}
+\newmdenv[style=mysquare]{mysolution}
+
+\usepackage{url}
+\newcommand{\newape}[1]
+{\section{Practical Session \thesection ( #1 )}}
+\newcommand{\nosolution}
+{\begin{mysolution}\stepcounter{Exo}
+The exercise~\theExo{} does not yet have a solution.
+You are encouraged to submit one to the following address
+\begin{center}
+  \url{https://github.com/Gp2mv3/ELEC2795}
+\end{center}
+or by mail to \url{nicolascognaux@gmail.com}.\end{mysolution}}
+
+\newcommand{\copyapeexo}[2]
+{\begin{mysolution}See APE#1, exercise~#2.\end{mysolution}}
+
+
+\newcommand{\xor}{\oplus}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\G}{\mathcal{G}}
+\DeclareMathOperator{\Gen}{\mathsf{Gen}}
+\DeclareMathOperator{\Enc}{\mathsf{Enc}}
+\DeclareMathOperator{\Dec}{\mathsf{Dec}}
+\DeclareMathOperator{\Mac}{\mathsf{Mac}}
+\DeclareMathOperator{\Vrfy}{\mathsf{Vrfy}}
+\DeclareMathOperator{\Com}{\mathsf{Com}}
+\DeclareMathOperator{\Open}{\mathsf{Open}}
+\DeclareMathOperator{\Sign}{\mathsf{Sign}}
+\DeclareMathOperator{\Sig}{\mathsf{Sig}}
+
+\DeclareMathOperator{\PrivK}{PrivK}
+\DeclareMathOperator{\MacForge}{MacForge}
+\DeclareMathOperator{\Sigforge}{Sig-forge}
+\DeclareMathOperator{\Invert}{Invert}
+\DeclareMathOperator{\DDH}{DDH}
+\DeclareMathOperator{\DLog}{DLog}
+\newcommand{\PrivKeav}{\PrivK^{\text{eav}}}
+\newcommand{\PrivKmultcpa}{\PrivK^{\text{multcpa}}}
+\newcommand{\Sigforgeone}{\Sigforge^{\text{1--time}}}
+
+\DeclareMathOperator{\Ima}{\mathsf{Im}}
+
+\title{Solutions of the exercises of ELEC2795}
+\author{Nicolas Cognaux}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{APE1}
+\include{APE2}
+\include{APE3}
+\include{APE4}
+\include{APE5}
+\include{APE6}
+\include{APE7}
+
+
+\end{document}
