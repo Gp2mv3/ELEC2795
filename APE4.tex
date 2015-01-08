@@ -1,5 +1,32 @@
 \newape{Cellular Systems}
 
-\nosolution
-\nosolution
+\begin{solution}
+	\begin{enumerate}
+	\item
+		We can assume that the signal is polarized $//$ to the reflection plane so that the polarization is not affected.
+		
+		
+		The received signal is the sum of two: $E = E_d + E_r$. The direct one will only be affected by the path loss:  $E_d = E\frac{e^{-j\vec{\beta} \vec{r}}}{r}$ while the second will also be affected by the reflection, in addition to the longer path:
+		$E_r = E\frac{e^{-j\vec{\beta} \vec{r'}}}{r'}$ with $r' \approx r$.
+		Then the normalized sum is simply $E_n = 1 + \frac{r'}{r}e^{-j\beta(r' - r)} =  1 + \alpha e^{-j\beta\Delta r}$. We can then draw the plot from $0$ to $2\pi$.
+		
+		%Figure \ref{fig:tp4ex1} shown this graph.
+		%\begin{figure}[h]
+		%	\centering
+		%	\includegraphics[width=0.4\linewidth]{tp4ex1.eps}
+		%	\caption{Normalized received signal}
+		%	\label{fig:tp4ex1}
+		%\end{figure}	
+		
+	\item Now that there is a movement, the phase shift is also due to the speed (Doppler shift). So we will use the equation:
+	$$ \frac{2\pi}{c}f_c \sin \theta v \Delta t = \frac{2\pi}{\lambda} \sin \theta v \Delta t$$
+	Here $\theta = 40^\circ \rightarrow \sin \theta = \frac{\sqrt{2}}{2}$
+	
+	So $E = E_d + E_d e^{j\frac{2\pi}{\lambda}\frac{\sqrt{2}}{2}v t}$, then, if we compute $E(t_2) - E(t_1) = E e^{j \frac{2\pi}{\lambda} \frac{\sqrt{2}{2}}v t_2} (1 - e^{v (t_1 - t_2)}) = E e^{j \frac{2\pi}{\lambda} \frac{\sqrt{2}{2}}v t_2}(1 - e^{\Delta d})$.
+	Then, after normalization, we obtain:
+	$$E_n = (1 - e^{\Delta d})$$
+	
+	\end{enumerate} 
+\end{solution}
+
 \nosolution

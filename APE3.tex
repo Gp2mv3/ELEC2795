@@ -20,14 +20,18 @@
 	\begin{enumerate}
 		\item The power density decreases in $\frac{1}{4\pi d^2}$ with $d \approx 141.4m$ via Pythagore:
 			  $$ S = \frac{1}{4\pi 141.4^2} = 3.98\expten{-6}~W/m^2 $$
+			  
 		\item $E_0 = E \cdot \hat{a_z} \exp{-j\vec{k} \cdot \vec{r}}$ where $\vec{r}$ is directed toward the center of the plate.
+		
 		\item It's the same expression with $\vec{r} = \frac{(a_x, a_y, 0)}{\sqrt{2}}$ and $\vec{k} = k \hat{a}$. Then we have 
 			  $$E_{inc} = E \cdot \hat{a_z} \exp{-j k (a_x + a_y)/\sqrt{2}}$$ 
 
 			  \notsure
 			  
+			  
 		\item We can define the origin at the reflection point, so that we have an incident wave coming with angle $\alpha = \pi/4$. The reflected magnetic field is given by the expression of $H_r$ of the second slide of page 12 from the propagation fundamentals course.
 			  \notsure I don't know how to compute the induced current...
+			  
 		\item Without the expression of the current I cannot have an expression here... \notsure
 	\end{enumerate}
 \end{solution}
@@ -42,12 +46,28 @@
 	$$P = 10 \log \expten{3} - \epsilon = -46.7dB$$
 \end{solution}
 
-\begin{solution}
-	
+% exercice 4 (begin but I think false)
+%\begin{solution}
+%	We can simply use the relation given by the Antenna Lecture: 
+%	$$E(R\vec{u}, t) = -\frac{j \eta I(t)}{2\lambda}\frac{\exp{-j2\pi/\lambda R'}}{R'} (\vec{dl'} - (\vec{dl} \vec{u'}) \vec{u'})$$
+%	We have $I(t)$ a triangle signal from $0$ to $I_0$, so the mean current over a period is given by $\frac{I_0T}{2} = \frac{I_0\pi}{\omega}$.
+%	Then, $E =$ 
+%\end{solution}
+\nosolution
 
+\begin{solution}
+	The circular polarized field can be represented as the sum of two perpendicular waves. So, we can separate the problem in two known resolution methods as described in the slides of Propagation fundamentals.
+	So, if $\vec{E_{r}} = \vec{E_{r//}} + \vec{E_{r\bot}}$, we can say:
+	$\vec{E_{r//}} = \hat{a_x}E_{r//} e^{-j\vec{\beta_r}\vec{r}}$ and $\vec{E_{r\bot}} = \hat{a_x}E_{r\bot}e^{-j\vec{\beta_r}\vec{r}}$ with $E_r = E_i - E_t$ and $\beta_r = \omega\sqrt{\epsilon \mu}$	
+	
+	
+	As previously, we can also decompose $E_i$ in two components and use those to compute the reflected components.
 \end{solution}
 
+\begin{solution}
+	The phase must be as if we had two perpendicular dipoles so we can set an angle of $\pi/4$. The amplitude is then computed by projecting on the perpendicular. We see that the projected amplitude is equal to $\frac{1}{\sqrt{2}}$. We want a circular polarization so we can set the current to $\sqrt{2} mA$.
+	
+	We can use the expression of the pathloss. Then we have $P_{rec} = 10\log{1\expten{-3}} - 32.5 - 20\log \frac{\omega}{2\pi 1\expten{6}} - 20 \log d_{km} + 2.15 + 2.15 [dB]$ where the first term is the emitted power ($-30dB$). \notsure
+\end{solution}
 
-\nosolution
-\nosolution
-\nosolution
+I think that questions 4, 5, 6 weren't seen in this course. \notsure
