@@ -1,4 +1,13 @@
 \newape{Digital Transmission}
 
-\nosolution
+\begin{solution}
+	$$\int_0^\infty P_e P_\gamma d\gamma = \frac{1}{2} \int_0^\infty erfc(\sqrt{\gamma}) \frac{e^{\frac{-\gamma}{\beta}}}{\beta} d\gamma$$
+	We use the composed integration with $f = \frac{1}{2}erfc{\sqrt{\gamma}} \rightarrow f' = \frac{-1}{\sqrt{\pi}}\frac{e^{-\gamma}}{\sqrt{\gamma}}$ and $g' = \frac{e^{\frac{-\gamma}{\beta}}}{\beta} \rightarrow g = e^{\frac{-\gamma}{\beta}}$.
+	Then we replace the variable $d\gamma \rightarrow d\gamma \sqrt{1 + \frac{1}{\beta}}$. 
+	
+	Finally, we obtain the expression of the average BER:
+	$$\overline{BER} = \frac{1}{2}(1 - \sqrt{\frac{1}{1 + \beta}})$$
+	Where $\beta = SNR$, that corresponds to the expression 28 of slide 10 about OFDM.
+\end{solution}
+
 \nosolution
