@@ -10,4 +10,23 @@
 	Where $\beta = SNR$, that corresponds to the expression 28 of slide 10 about OFDM.
 \end{solution}
 
-\nosolution
+\begin{solution}
+	$s = P d$ where d is the data and $P$ is the precoding matrix, then we have $y = Gs + n = GPd + n$, where $G$ is the FIR representation of the channel and $n$ is the noise (AWGN).
+	We know that the channel has a frequency response $\Omega$. So we can say that $G = W^H \Omega W$ where $W$ is the FFT matrix (as defined in the exercise).
+	We have $y = W^H \Omega W P d + n = W^H \Omega W d + n$. As we are in single carrier, $P = I_{n \times n}$.
+	
+	The zero-forcing equalizer will apply the inverse of the channel frequency response (estimated before), so we have:
+	$$\hat{d} = W^H \Omega^{-1} W y = d + W^H \Omega^{-1}W n$$
+	
+	The SNR can then be expressed with that previous expression:
+	$$SNR = \frac{|Signal|^2}{|Noise|^2} = \frac{|d|^2}{|W^H \Omega^{-1}W n|^2}$$
+	This can then be expressed with a sum because we know that the matrix of noise will be circulant: 
+	$$W^H \Omega^{-1}W = \frac{1}{\sqrt{K}}\sum^{K-1}_{k = 0} \sum^{K-1}_{k' = 0} e^{-jkk'/K} \frac{1}{\omega_k} \sum^{K-1}_{k' = 0} e^{jkk'/K} = \frac{1}{K} \sum^{K-1}_{k = 0} \frac{1}{\omega_k}$$
+	
+	$$
+	SNR = \frac{1}{| \frac{1}{K} \sum^{K-1}_{k = 0} \frac{1}{\omega_k}n|^2} = \frac{1}{\frac{1}{K} \sum^{K-1}_{k = 0} \frac{|n|^2}{h_k}}
+	$$
+	
+	We also know that $|n|^2 = \sigma_n$	, which simplify the expression to :
+	$$SNR = \frac{1}{\frac{1}{K} \sum^{K-1}_{k = 0} \frac{\sigma_n}{h_k}}$$
+\end{solution}
