@@ -1,4 +1,31 @@
 \newape{DSL Systems}
 
-\nosolution
+\begin{solution}
+	\begin{enumerate}
+		\item We have 2048 carriers, spaced of $4.3125kHz$, we can then say that the total bandwidth is : 
+			  $$BW = 2048\cdot 4.3125kHz = 8.832 Mhz$$
+		\item The FFT must be supplied by an input of size power of 2, with the positive and negative frequencies. So we have a size of $2\cdot 2048 = 4096$.
+		\item The total bandwidth is $8.832 Mhz$ but because of the Shannon theorem, we have to use a frequency higher than two times the bandwidth. So we will use a frequency $f_s \geq 17.664Mhz$.
+		\item The length is the output of the $IFFT + |CP| = 4096 + 320$ The duration is $T_s = N_s \cdot dt = N_s/f_s = \frac{4096 + 320}{17.664\expten{6}} = 25\expten{-4} = 25ms$.
+		\item The SNR available depends on the frequency because of the non-flat frequency response of the channel. The formula given in the exercice seems wrong to me for two reasons:
+		\begin{itemize}
+			\item The units doesn't match because of the square
+			\item The values of attenuation resulting are too big with the square...
+		\end{itemize}				
+		
+		$$
+		SNR = \frac{\gamma_s \lambda}{\gamma_n}\frac{2N}{2N + L} = \frac{1\expten{-6} (1\expten{-att/10})}{1\expten{-14}}\frac{2\cdot 2048}{2\cdot 2048 + 320}
+		$$
+		Beware that the PSD are given in dBm, so we have to convert to dB. This doesn't change the answer because those values are divided but it's a great reflex to have.
+		
+		
+		Which gives us: $SNR_{1} = 11676.98 = 40.6733 dB$, $SNR_{2} = 92.75 = 19.67 dB$, $SNR_{3} = 2.933 = 4.67 dB$.
+		
+		We want a SNR margin of $6dB$ and we know that the coding allows to gain $3dB$, so we can say that we have to compute $SNR_e = SNR - 6 + 3 = SNR - 3$.
+		Then we have $SNR'_{1} = 37.6733 dB$, $SNR'_{2} = 16.67 dB$, $SNR'_{3} = 1.67 dB$.
+		
+		If we match those SNR in the plot of BER/SNR given, we can choose the modulation which will be: 64-QAM fo the frequencies from 0 to 3Mhz and 4-QAM for higher ones.
+		
+	\end{enumerate}
+\end{solution}
 \nosolution
