@@ -24,8 +24,17 @@
 		We want a SNR margin of $6dB$ and we know that the coding allows to gain $3dB$, so we can say that we have to compute $SNR_e = SNR - 6 + 3 = SNR - 3$.
 		Then we have $SNR'_{1} = 37.6733 dB$, $SNR'_{2} = 16.67 dB$, $SNR'_{3} = 1.67 dB$.
 		
-		If we match those SNR in the plot of BER/SNR given, we can choose the modulation which will be: 64-QAM fo the frequencies from 0 to 3Mhz and 4-QAM for higher ones.
+		If we match those SNR in the plot of BER/SNR given, we can choose the modulation which will be: 64-QAM fo the frequencies from 50kHz to $3MHz$, 4-QAM for the frequencies between $3MHz$ and $6MHz$ and BPSK for higher ones.
+		Those modulations conduct to a bitrate of $N_1\cdot log_2 64 + N_2\cdot log_2 4 + N_3\cdot 1$ where $N_i$ corresponds to the amount of carriers in each frequency range. 
+		$N_1 = (3Mhz - 50kHz)/4.3125k = 684$, $N_1 = 3Mhz/4.3125k = 695$, $N_3 = 2048 - 684 - 695 = 669$. Then, we can simply sum and multiply everything:
 		
+		
+		$BR = 6163/25ms = 246520 bits/s$ which seems wrong to me because VDSL is designed to have higher bitrates than ADSL... \notsure	
+						
 	\end{enumerate}
 \end{solution}
-\nosolution
+
+
+\begin{solution}
+	
+\end{solution}
