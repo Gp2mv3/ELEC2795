@@ -34,7 +34,47 @@
 	\end{enumerate}
 \end{solution}
 
-
 \begin{solution}
+	We know the representation of the line. It's a self with a resistance in serial, and also a capacity with another resistance in parallel between the two wires.
+	Then, we can compute the quadripole representation of the different lines here. We have 3 pieces in total: $d_1$, $d_{BT}$ and $d_2$. We compute the S matrix corresponding to those quadripoles.
+	$$
+	\left[
+	\begin{array}{c}
+	V_I \\ 
+	I_I
+	\end{array}
+	\right] 
+	= 
+	\phi
+	\left[
+	\begin{array}{c}
+	V_L \\ 
+	I_L
+	\end{array}
+	\right] 
+	$$
 	
+	Normally, $\phi$ is given, to recompute it, it's long and not useful, so we have 
+	$$\phi_{connected} =
+	\left[
+	\begin{array}{cc}
+	cosh(\gamma d) & Z_0 sinh(\gamma d) \\ 
+	\frac{sinh(\gamma d)}{Z_0} & cosh(\gamma d)
+	\end{array} 
+	\right]$$	
+	with $\gamma = \sqrt{(R + j\omega L)(G + j \omega C)}$
+	
+	The matrix for the disconnected tape (open) is :
+	$$\phi_{open} =
+	\left[
+	\begin{array}{cc}
+	1 & 0 \\ 
+	\frac{-tanh(\gamma d)}{Z_{BT}} & 1
+	\end{array} 
+	\right]$$	
+	
+	Then we can use the total quadripole which is equivalent to $\phi = \phi_{connected 1} \phi{open} \phi{connected 2}$. The transfer function is then given by $\frac{V_L}{V_I} = \frac{1}{\phi_{11} + \phi_{12}/Z}$ where $Z$ is load corresponding to the user.
+	
+	After the computation (very long, boring and useless, if someone want to copy it, he can !), we obtain: 
+	$$T = \frac{V_L}{V_I} = \frac{e^{-\gamma d}}{1 + \frac{1}{2}tanh(\gamma d_{BT})}$$
 \end{solution}
